@@ -13,7 +13,9 @@
       "@pkg/*": ["pkg/*"]
     },
     "types": ["node"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true
   },
   "include": ["js/**/*", "pkg/**/*"]
 }
