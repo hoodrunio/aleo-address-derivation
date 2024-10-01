@@ -1,4 +1,4 @@
-import * as wasm from '@pkg/aleo_address_derivation';
+import * as wasm from '../pkg/aleo_address_derivation';
 /**
  * Derives an Aleo address from a given signature.
  * @param signature The Aleo signature to derive the address from.

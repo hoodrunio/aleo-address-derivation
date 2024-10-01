@@ -6,7 +6,7 @@
   "types": "dist/js/index.d.ts",
   "scripts": {
     "test": "node test.js",
-    "build": "wasm-pack build --target nodejs && tsc",
+    "build": "wasm-pack build --target nodejs && tsc && cp -r pkg dist/",
     "prepublishOnly": "npm run build"
   },
   "keywords": [

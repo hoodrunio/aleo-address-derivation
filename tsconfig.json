@@ -7,11 +7,12 @@
     "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "baseUrl": ".",
-    "paths": {
-      "@pkg/*": ["pkg/*"]
-    },
+    // "paths": {
+    //   "@pkg/*": ["pkg/*"]
+    // },
     "types": ["node"],
     "skipLibCheck": true,
     "declaration": true,
