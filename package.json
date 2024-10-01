@@ -1,0 +1,45 @@
+{
+  "name": "aleo-address-derivation",
+  "version": "0.1.0",
+  "description": "Aleo address derivation from signature",
+  "main": "dist/js/index.js",
+  "types": "dist/js/index.d.ts",
+  "scripts": {
+    "test": "node test.js",
+    "build": "wasm-pack build --target nodejs && tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "aleo",
+    "address",
+    "derivation",
+    "wasm"
+  ],
+  "author": "hoodrunio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hoodrunio/aleo-address-derivation.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "typescript": "^5.6.2",
+    "wasm-pack": "^0.10.3",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "files": [
+    "dist/**/*",
+    "pkg/aleo_address_derivation.js",
+    "pkg/aleo_address_derivation_bg.wasm",
+    "pkg/aleo_address_derivation.d.ts",
+    "pkg/aleo_address_derivation_bg.wasm.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "tsconfig-paths": "^4.2.0"
+  }
+}

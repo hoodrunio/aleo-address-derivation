@@ -1,27 +1,26 @@
-use pyo3::prelude::*;
+//! Aleo address derivation from signature
+//! 
+//! This library provides functionality to derive an Aleo address from a given signature.
+
+use wasm_bindgen::prelude::*;
 use snarkvm_console_account::{Address, Signature};
 use snarkvm_console_network::Testnet3 as Network;
 use std::str::FromStr;
 
-#[pyfunction]
-fn signature_to_address(signature_str: &str) -> PyResult<String> {
-    // İmzayı ayrıştır
+#[wasm_bindgen]
+pub fn signature_to_address(signature_str: &str) -> Result<String, JsValue> {
     let signature = Signature::<Network>::from_str(signature_str)
-        .map_err(|e| PyErr::new::<pyo3::exceptions::PyValueError, _>(format!("Geçersiz imza: {}", e)))?;
+        .map_err(|e| JsValue::from_str(&e.to_string()))?;
 
-    // İmzadan ComputeKey'i elde et
     let compute_key = signature.compute_key();
 
-    // ComputeKey'den Address'i elde et
     let address = Address::try_from(&compute_key)
-        .map_err(|e| PyErr::new::<pyo3::exceptions::PyValueError, _>(format!("Adres türetilemedi: {}", e)))?;
+        .map_err(|e| JsValue::from_str(&e.to_string()))?;
 
-    // Address'i string'e çevir
     Ok(address.to_string())
 }
 
-#[pymodule]
-fn aleo_address_derivation(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(signature_to_address, m)?)?;
-    Ok(())
+#[wasm_bindgen(start)]
+pub fn start() {
+    console_error_panic_hook::set_once();
 }

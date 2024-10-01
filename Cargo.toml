@@ -4,13 +4,14 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "aleo_address_derivation"
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-pyo3 = { version = "0.18.3", features = ["extension-module"] }
-snarkvm-console-account = "0.16.19"
-snarkvm-console-network = "0.16.19"
+wasm-bindgen = "0.2"
+snarkvm-console-account = { version = "0.16.19", features = ["compute_key", "private_key", "signature"] }
+snarkvm-console-network = { version = "0.16.19", features = ["wasm"] }
+getrandom = { version = "0.2", features = ["js"] }
+console_error_panic_hook = "0.1.7"
 
 [profile.release]
 opt-level = 3
