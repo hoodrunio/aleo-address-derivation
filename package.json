@@ -1,6 +1,6 @@
 {
   "name": "aleo-address-derivation",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Aleo address derivation from signature",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
